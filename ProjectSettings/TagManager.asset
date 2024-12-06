@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Coin
   - Heart
+  - Enemy_Destroyer
+  - EnemySpawned
   layers:
   - Default
   - TransparentFX
