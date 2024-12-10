@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPatrol1 : MonoBehaviour
+public class EnemyPatrol : MonoBehaviour
 {
 	public float speed = 1f;
 	public float wallAware = 0.5f;
@@ -13,6 +13,7 @@ public class EnemyPatrol1 : MonoBehaviour
 
 	private Rigidbody2D _rigidbody;
 	private Animator _animator;
+	private Weapon _weapon;
 
 	// Movement
 	private Vector2 _movement;
@@ -24,6 +25,7 @@ public class EnemyPatrol1 : MonoBehaviour
 	{
 		_rigidbody = GetComponent<Rigidbody2D>();
 		_animator = GetComponent<Animator>();
+		_weapon = GetComponentInChildren<Weapon>();
 	}
 
 	// Start is called before the first frame update
@@ -75,7 +77,7 @@ public class EnemyPatrol1 : MonoBehaviour
 	private void OnTriggerStay2D(Collider2D collision)
 	{
 		if (_isAttacking == false && collision.CompareTag("Player")) {
-			StartCoroutine(Attack());
+			StartCoroutine(AimAndShoot());
 		}
 	}
 
@@ -87,20 +89,26 @@ public class EnemyPatrol1 : MonoBehaviour
 		transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
 	}
 
-	private IEnumerator Attack()
+	private IEnumerator AimAndShoot()
 	{
 		
 		_isAttacking = true;
 
 		yield return new WaitForSeconds(aimingTime);
 
-		_animator.SetTrigger("Attack");
+		_animator.SetTrigger("Shoot");
 
 		yield return new WaitForSeconds(shootingTime);
 
 		_isAttacking = false;
 	}
 
+	void CanShoot()
+	{
+		if (_weapon != null) {
+			//_weapon.Shoot();
+		}
+	}
     private void OnEnable()
     {
         _isAttacking = false;
