@@ -50,7 +50,7 @@ public class Player_Level_3_Controller : MonoBehaviour
         {
             if (IsGrounded && Input.GetButtonDown("Jump"))
             {
-
+                Player_Animator.SetTrigger("Jump");
                 IsJumping = true;
                 rigidB.velocity = Vector2.up * Jumpforce;
             }
@@ -79,15 +79,16 @@ public class Player_Level_3_Controller : MonoBehaviour
 
         void Animations_Logic()
         {
+
             if (!IsGrounded)
             {
-                    Player_Animator.SetTrigger("Jump");
-                    Player_Animator.ResetTrigger("Running");
+                Player_Animator.SetBool("Ground", false);
+
             }
             else if (IsGrounded)
             {
-                    Player_Animator.SetTrigger("Running");
-                    Player_Animator.ResetTrigger("Jump");
+
+                Player_Animator.SetBool("Ground", true);
             }
         }
  
