@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyPatrol1 : MonoBehaviour
 {
-	public float speed = 1f;
+    public int damage = 1;
+    public float speed = 1f;
 	public float wallAware = 0.5f;
 	public LayerMask groundLayer;
 	public float playerAware = 3f;
@@ -100,6 +101,15 @@ public class EnemyPatrol1 : MonoBehaviour
 
 		_isAttacking = false;
 	}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (_isAttacking == true && collision.CompareTag("Player"))
+        {
+            //player get hurt
+            collision.SendMessageUpwards("AddDamage", damage);
+            Debug.Log("DAÑO BRUTAL PAPEADO");
+        }
+    }
 
     private void OnEnable()
     {
