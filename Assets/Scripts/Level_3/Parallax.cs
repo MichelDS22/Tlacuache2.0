@@ -32,6 +32,8 @@ public class Parallax : MonoBehaviour
         }
         Vel_Increase(2.5f);
     }
+
+
     void Vel_Increase(float Value_)
     {
         float Value = Value_;
@@ -39,7 +41,13 @@ public class Parallax : MonoBehaviour
         if (Parallax_Vel_Alpha < Value)
         {
             Parallax_Vel_Alpha += .0001f;
+            
+            if (Parallax_Vel_Alpha > Value)
+            {
+                Parallax_Vel_Alpha = Value;
+            }
         }
+
     }
     void Vel_Decrease(float Value_)
     {
