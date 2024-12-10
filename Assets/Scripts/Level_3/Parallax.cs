@@ -4,25 +4,29 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Parallax : MonoBehaviour
 {
-    public float speed = 0.5f;  // La velocidad de desplazamiento
-    public float tilingSpeed = 1f;  // La velocidad de tiling en el eje X
-    private RawImage rawImage;  // El componente RawImage que contiene la textura
-     public float Parallax_Vel_Alpha;
+    public float speed = 0.5f;  
+    public float tilingSpeed = 1f;  
+    private RawImage rawImage;  
+    private float currentOffsetX = 0f;  
+
+
+    public float Parallax_Vel_Alpha;
     public Player_Level_3_Controller Player;
+
     void Start()
     {
-        rawImage = GetComponent<RawImage>();  // Obtener el componente RawImage
+        rawImage = GetComponent<RawImage>();  
     }
 
     void Update()
     {
 
-            // Desplazar la textura en el eje X según el tiempo y la velocidad
-            float offsetX = Time.time * speed;  // Controla el movimiento de la textura
-            rawImage.uvRect = new Rect(offsetX * (tilingSpeed*Parallax_Vel_Alpha), 0f, 1f, 1f); // Ajustamos uvRect para movimiento
+        currentOffsetX += (speed*Parallax_Vel_Alpha) * Time.deltaTime;  
+
+        rawImage.uvRect = new Rect(currentOffsetX * tilingSpeed, 0f, 1f, 1f);
 
 
-if (Player.Game_Status_Switch == 3)
+        if (Player.Game_Status_Switch == 3)
         {
             Vel_Decrease(0);
         }
