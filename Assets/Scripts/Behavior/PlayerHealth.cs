@@ -47,7 +47,7 @@ public class PlayerHealth : MonoBehaviour
             DisableEnemies();
         }
         hearthUI.sizeDelta = new Vector2(hearthSize * health, hearthSize);
-        Debug.Log("chale te quedan " + health);
+        Debug.Log("Player got damaged. His current health is " + health);
     }
     public void AddHealth(int amount)
     {
@@ -60,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         hearthUI.sizeDelta = new Vector2(hearthSize * health, hearthSize);
-        Debug.Log("Mas vidas papu " + health);
+        Debug.Log("Player got some life. His current health is " + health);
     }
     private IEnumerable VisualFeedback()
     {
