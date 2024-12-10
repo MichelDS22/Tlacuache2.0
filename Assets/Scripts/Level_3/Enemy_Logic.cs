@@ -6,11 +6,27 @@ public class Enemy_Logic : MonoBehaviour
 {
 
     public Player_Level_3_Controller Player;
+    public BoxCollider targetCollider;
+    public Point_System Player_Points;
 
     [SerializeField] private Rigidbody2D rigidB_Enemy;
     [SerializeField] private float Enemy_Vel = 2f;
     [SerializeField] private float Enemy_Vel_Alpha = 1f;
-    void Update()
+
+
+    public bool OnCustomTriggerEnter(Collider other)
+    {
+        // Verificamos si el collider con el que colisionamos es el que nos interesa
+        if (other == targetCollider)
+        {
+            Debug.Log("¡Collider correcto! Trigger activado.");
+
+            return true;
+        }
+        return false;
+    }
+
+        void Update()
     {
         if (tag == "EnemySpawned")
         {
@@ -56,6 +72,11 @@ public class Enemy_Logic : MonoBehaviour
         if (collision.tag == "Player")
         {
             Player.Game_Status_Switch = 3;
+        }
+
+        if (collision.tag == "Point")
+        {
+            Player_Points.GanarPunto();
         }
 
         if (collision.tag == "Enemy_Destroyer")

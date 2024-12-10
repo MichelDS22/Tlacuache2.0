@@ -204,6 +204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  targetCollider: {fileID: 0}
+  Player_Points: {fileID: 0}
   rigidB_Enemy: {fileID: 124245762753101727}
   Enemy_Vel: 5
   Enemy_Vel_Alpha: 1

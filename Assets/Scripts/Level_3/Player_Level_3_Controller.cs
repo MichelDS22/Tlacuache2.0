@@ -6,6 +6,7 @@ public class Player_Level_3_Controller : MonoBehaviour
 {
     public int Game_Status_Switch;
     public Animator Player_Animator;
+    public Point_System Player_Points;
 
     [SerializeField] private Rigidbody2D rigidB;
     [SerializeField] private float Jumpforce = 10f;
@@ -27,21 +28,22 @@ public class Player_Level_3_Controller : MonoBehaviour
         {
             case 1:
                 Player_Animator.SetInteger("Anim_Status", 0);
-               break;
+                break;
 
             case 2:
                 Player_Animator.SetInteger("Anim_Status", 1);
                 Animations_Logic();
                 Player_Move();
-               break;
+                break;
 
-            case 3: 
+            case 3:
                 Player_Animator.SetInteger("Anim_Status", 2);
-               break;
+                Player_Points.Win_Lose();
+                break;
 
             default:
                 Game_Status_Switch = 1;
-               break;
+                break;
         }
 
 
@@ -91,10 +93,9 @@ public class Player_Level_3_Controller : MonoBehaviour
                 Player_Animator.SetBool("Ground", true);
             }
         }
- 
 
 
-
+       
     }
 }
 

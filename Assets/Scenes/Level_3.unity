@@ -433,6 +433,10 @@ PrefabInstance:
       propertyPath: Enemy_Vel
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4922816487819890066, guid: aca7bb9ae11511e44ac50eaee8304fb5, type: 3}
+      propertyPath: Player_Points
+      value: 
+      objectReference: {fileID: 1007501960}
     - target: {fileID: 9171224503530376059, guid: aca7bb9ae11511e44ac50eaee8304fb5, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -663,6 +667,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1007501960 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 634822033753302128, guid: e02d321e4f8056b4f804f152d5d871a0, type: 3}
+  m_PrefabInstance: {fileID: 1945127836}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c399e698cc817845ad943b8467a68b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1045681655
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,9 +975,21 @@ PrefabInstance:
       propertyPath: Game_Status_Switch
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 268917742028315085, guid: e02d321e4f8056b4f804f152d5d871a0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 561690633847546303, guid: e02d321e4f8056b4f804f152d5d871a0, type: 3}
       propertyPath: m_Name
       value: Player_Level_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1710805914819712210, guid: e02d321e4f8056b4f804f152d5d871a0, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5729269827400003719, guid: e02d321e4f8056b4f804f152d5d871a0, type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6399058650823160357, guid: e02d321e4f8056b4f804f152d5d871a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1003,6 +1030,26 @@ PrefabInstance:
     - target: {fileID: 6399058650823160357, guid: e02d321e4f8056b4f804f152d5d871a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589671764727084493, guid: e02d321e4f8056b4f804f152d5d871a0, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589671764727084493, guid: e02d321e4f8056b4f804f152d5d871a0, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589671764727084493, guid: e02d321e4f8056b4f804f152d5d871a0, type: 3}
+      propertyPath: m_enableKerning
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589671764727084493, guid: e02d321e4f8056b4f804f152d5d871a0, type: 3}
+      propertyPath: m_isOrthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589671764727084493, guid: e02d321e4f8056b4f804f152d5d871a0, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
