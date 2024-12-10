@@ -8,6 +8,7 @@ TagManager:
   - Heart
   - Enemy_Destroyer
   - EnemySpawned
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - UI
   - Hit
   - Hurt
-  - 
+  - Enemy
   - 
   - 
   - 
