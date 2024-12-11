@@ -100,17 +100,24 @@ public class PlayerHealth : MonoBehaviour
         if (health == 3)
         {
             vidas3.gameObject.SetActive(true);
+            vidas2.gameObject.SetActive(true);
+            vidas1.gameObject.SetActive(true);
+
             Debug.Log("Player got damaged. His current health is " + health);
         }
         if (health == 2)
         {
             vidas3.gameObject.SetActive(false);
+            vidas2.gameObject.SetActive(true);
+            vidas1.gameObject.SetActive(true);
             Debug.Log("Player got damaged. His current health is " + health);
         }
         if(health == 1)
         {
             vidas3.gameObject.SetActive(false);
             vidas2.gameObject.SetActive(false);
+            vidas1.gameObject.SetActive(true);
+
             Debug.Log("Player got damaged. His current health is " + health);
         }
     }

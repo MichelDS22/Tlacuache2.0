@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -13,6 +14,9 @@ public class Player : MonoBehaviour
     public LayerMask groundLayer; //El tipo de caja de layer, seleccionar la layer que es el suelo, para checar la colisión
     public float groundCheckRadius; // para ver que tan grande es el piso
 
+
+    public TextMeshProUGUI monedas;
+    public int TotalMonedas;
 
     private Rigidbody2D _rigibody;
     private Animator _animator;
@@ -121,5 +125,14 @@ public class Player : MonoBehaviour
         float localSclaeX = transform.localScale.x;
         localSclaeX = localSclaeX * -1f;
         transform.localScale = new Vector3(localSclaeX, transform.localScale.y, transform.localScale.z);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Coin")
+        {
+            Destroy(collision.gameObject);
+            TotalMonedas += 1;
+            monedas.text = " " + TotalMonedas.ToString();
+        }
     }
 }
