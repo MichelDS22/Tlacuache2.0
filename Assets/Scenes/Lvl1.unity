@@ -45502,6 +45502,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1444968961470259881, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
+      propertyPath: m_Color.b
+      value: 0.52436155
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444968961470259881, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
+      propertyPath: m_Color.g
+      value: 0.10933607
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444968961470259881, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8584906
+      objectReference: {fileID: 0}
     - target: {fileID: 5488003209198550014, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
       propertyPath: m_Name
       value: Enemy1 (11)
@@ -46985,6 +46997,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1444968961470259881, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
+      propertyPath: m_Color.b
+      value: 0.2214756
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444968961470259881, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
+      propertyPath: m_Color.g
+      value: 0.2214756
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444968961470259881, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
+      propertyPath: m_Color.r
+      value: 0.745283
+      objectReference: {fileID: 0}
     - target: {fileID: 5488003209198550014, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
       propertyPath: m_Name
       value: Enemy1 (1)
@@ -88930,6 +88954,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1444968961470259881, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444968961470259881, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8848189
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444968961470259881, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5518868
+      objectReference: {fileID: 0}
     - target: {fileID: 5488003209198550014, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
       propertyPath: m_Name
       value: Enemy1 (5)
@@ -89293,6 +89329,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1444968961470259881, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444968961470259881, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8978099
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444968961470259881, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4292453
+      objectReference: {fileID: 0}
     - target: {fileID: 5488003209198550014, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
       propertyPath: m_Name
       value: Enemy1 (4)
@@ -89654,6 +89702,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1444968961470259881, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
+      propertyPath: m_Color.b
+      value: 0.18396229
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444968961470259881, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444968961470259881, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
+      propertyPath: m_Color.r
+      value: 0.60496753
+      objectReference: {fileID: 0}
     - target: {fileID: 5488003209198550014, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
       propertyPath: m_Name
       value: Enemy1
