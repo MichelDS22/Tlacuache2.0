@@ -5,11 +5,12 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int EHealth = 1; // Vida inicial del enemigo.
+    
 
     // Método para recibir daño.
-    public void AddDamage(int damage)
+    public void AddDamage()
     {
-        EHealth -= damage; // Reducir la vida según el daño recibido.
+        EHealth -= 1; // Reducir la vida según el daño recibido.
 
         if (EHealth <= 0 )
         {

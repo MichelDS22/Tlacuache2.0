@@ -13,8 +13,8 @@ public class PlayerHealth : MonoBehaviour
 
     // Game Over
     private int health;
-    private bool _isDead = false; 
-    private bool _isInvulnerable = false; 
+    private bool _isDead = false; // Bandera para verificar si el jugador está muerto.
+    private bool _isInvulnerable = false; // Bandera para el cooldown de daño.
 
     private SpriteRenderer _renderer;
     private Animator _animator;
@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void AddDamage(int amount)
     {
-        if (_isDead || _isInvulnerable) return; 
+        if (_isDead || _isInvulnerable) return; // No recibe daño si está muerto o en cooldown.
 
         health -= amount;
 
@@ -77,7 +77,7 @@ public class PlayerHealth : MonoBehaviour
         _renderer.color = Color.red;
 
         // Espera el tiempo del cooldown.
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
 
         // Restaurar el color original.
         _renderer.color = Color.white;
@@ -90,7 +90,6 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         _isDead = true; // Marca al jugador como muerto.
-        DisableEnemies();
 
         // Lógica de la pantalla de derrota.
         MenuPerder.gameObject.SetActive(true);
@@ -100,16 +99,6 @@ public class PlayerHealth : MonoBehaviour
         _animator.enabled = false;
         _controller.enabled = false;
         GetComponent<Collider2D>().enabled = false; // Desactiva las colisiones.
-    }
-
-    private void DisableEnemies()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-        foreach (GameObject enemy in enemies)
-        {
-            enemy.SetActive(false);
-        }
     }
 
     private void OnEnable()

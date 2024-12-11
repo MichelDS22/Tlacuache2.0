@@ -35,7 +35,7 @@ public class PlayerAttack : MonoBehaviour
             if (collision.CompareTag("Enemy") || collision.CompareTag("Big Bullet"))
             {
                 // Enviar el daño al enemigo.
-                collision.SendMessageUpwards("AddDamage", AttackDamage);
+                collision.SendMessageUpwards("AddDamage",1);
             }
         }
     }
