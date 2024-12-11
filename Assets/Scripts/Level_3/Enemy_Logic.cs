@@ -6,6 +6,7 @@ public class Enemy_Logic : MonoBehaviour
 {
 
     public Player_Level_3_Controller Player;
+    public Animator Enemy_ANIM;
     public BoxCollider targetCollider;
     public Point_System Player_Points;
 
@@ -36,6 +37,7 @@ public class Enemy_Logic : MonoBehaviour
         if (Player.Game_Status_Switch == 3)
         {
             Vel_Decrease(0);
+            Enemy_ANIM.SetBool("Stop", true);
         }
             Vel_Increase(2.5f);
 

@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  Enemy_ANIM: {fileID: 7987852801769089574}
   targetCollider: {fileID: 0}
   Player_Points: {fileID: 0}
   rigidB_Enemy: {fileID: 124245762753101727}
