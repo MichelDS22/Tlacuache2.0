@@ -34,6 +34,12 @@ public class Enemy_Logic : MonoBehaviour
             rigidB_Enemy.velocity = Vector2.left * (Enemy_Vel*Enemy_Vel_Alpha);
         }
 
+
+        if(Player_Points.puntos >= Player_Points.Max_puntos && tag == "Boss")
+        {
+            rigidB_Enemy.velocity = Vector2.left * (Enemy_Vel * Enemy_Vel_Alpha); 
+        }
+
         if (Player.Game_Status_Switch == 3)
         {
             Vel_Decrease(0);
