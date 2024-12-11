@@ -12,6 +12,7 @@ public class EnemyPatrol1 : MonoBehaviour
 	public float aimingTime = 0.5f;
 	public float shootingTime = 1.5f;
 
+
 	private Rigidbody2D _rigidbody;
 	private Animator _animator;
 
@@ -48,6 +49,7 @@ public class EnemyPatrol1 : MonoBehaviour
 
 		if (_isAttacking == false) {
 			if (Physics2D.Raycast(transform.position, direction, wallAware, groundLayer)) {
+                Debug.DrawRay(transform.position, transform.forward, Color.green); 
 				Flip();
 			}
 		}

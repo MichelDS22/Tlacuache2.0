@@ -16,11 +16,13 @@ public class Player : MonoBehaviour
 
 
     public TextMeshProUGUI monedas;
+    public TextMeshProUGUI monedasPerder;
     public int TotalMonedas;
 
     private Rigidbody2D _rigibody;
     private Animator _animator;
 
+   
     //LongIdle
     private float _longIdleTimer;
 
@@ -133,6 +135,8 @@ public class Player : MonoBehaviour
             Destroy(collision.gameObject);
             TotalMonedas += 1;
             monedas.text = " " + TotalMonedas.ToString();
+            monedasPerder.text = " " + TotalMonedas.ToString();
+
         }
     }
 }

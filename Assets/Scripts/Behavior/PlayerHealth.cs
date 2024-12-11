@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public Transform OriginPoint;
 
     public int totalHealth = 3;
+    
     public RectTransform vidas1;
     public RectTransform vidas2;
     public RectTransform vidas3;
@@ -16,12 +18,13 @@ public class PlayerHealth : MonoBehaviour
     //Game Over
 
     private int health;
-    private float hearthSize = 21f;
 
     private SpriteRenderer _renderer;
     private Animator _animator;
     private Player _controller;
 
+    public GameObject HUD;
+    public GameObject MenuPerder;
 
     private void Awake()
     {
@@ -36,16 +39,18 @@ public class PlayerHealth : MonoBehaviour
     }
     public void AddDamage(int amount)
     {
+        
         health -= amount;
-
-        //Visual
+        
         StartCoroutine("VisualFeedback");
-        //Game Over
+
+
         if (health <= 0)
         {
             health = 0;
             gameObject.SetActive(false);
             DisableEnemies();
+            
         }
         VidasHUD();
 
@@ -65,9 +70,11 @@ public class PlayerHealth : MonoBehaviour
     }
     private IEnumerable VisualFeedback()
     {
+        Debug.Log("Corrutina de daño");
         _renderer.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(2f);
         _renderer.color = Color.white;
+        
     }
 
     private void DisableEnemies()
@@ -86,6 +93,8 @@ public class PlayerHealth : MonoBehaviour
     }
     private void OnDisable()
     {
+        MenuPerder.gameObject.SetActive(true);
+        HUD.SetActive(false);
         _animator.enabled = false;
         _controller.enabled = false;
 
@@ -93,7 +102,6 @@ public class PlayerHealth : MonoBehaviour
         health = 3;
         VidasHUD();
         _controller.transform.position = new Vector2(OriginPoint.transform.position.x, OriginPoint.transform.position.y);
-
     }
     public void  VidasHUD()
     {
