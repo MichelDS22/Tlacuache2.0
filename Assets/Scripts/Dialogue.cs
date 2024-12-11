@@ -82,7 +82,9 @@ public class Dialogue : MonoBehaviour
         if (collision.tag == "Player")
         {
             isPlayerInRange = false;
+            DidDialogueStart = false;
             Dialogue_Mark.SetActive(false);
+            Dialogue_Panel.SetActive(false);
         }
     }
 }
