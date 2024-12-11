@@ -8,14 +8,15 @@ public class PlayerHealth : MonoBehaviour
     public Transform OriginPoint;
 
     public int totalHealth = 3;
-    public RectTransform hearthUI;
+    public RectTransform vidas1;
+    public RectTransform vidas2;
+    public RectTransform vidas3;
+
 
     //Game Over
-    public RectTransform gameOverMenu;
-    public GameObject hordes;
 
     private int health;
-    private float hearthSize = 16f;
+    private float hearthSize = 21f;
 
     private SpriteRenderer _renderer;
     private Animator _animator;
@@ -46,8 +47,8 @@ public class PlayerHealth : MonoBehaviour
             gameObject.SetActive(false);
             DisableEnemies();
         }
-        hearthUI.sizeDelta = new Vector2(hearthSize * health, hearthSize);
-        Debug.Log("Player got damaged. His current health is " + health);
+        VidasHUD();
+
     }
     public void AddHealth(int amount)
     {
@@ -59,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
             health = totalHealth;
         }
 
-        hearthUI.sizeDelta = new Vector2(hearthSize * health, hearthSize);
+        VidasHUD();
         Debug.Log("Player got some life. His current health is " + health);
     }
     private IEnumerable VisualFeedback()
@@ -85,15 +86,32 @@ public class PlayerHealth : MonoBehaviour
     }
     private void OnDisable()
     {
-        gameOverMenu.gameObject.SetActive(true);
-        hordes.SetActive(false);
         _animator.enabled = false;
         _controller.enabled = false;
 
         //para el respawn
         health = 3;
-        hearthUI.sizeDelta = new Vector2(hearthSize * health, hearthSize);
+        VidasHUD();
         _controller.transform.position = new Vector2(OriginPoint.transform.position.x, OriginPoint.transform.position.y);
 
+    }
+    public void  VidasHUD()
+    {
+        if (health == 3)
+        {
+            vidas3.gameObject.SetActive(true);
+            Debug.Log("Player got damaged. His current health is " + health);
+        }
+        if (health == 2)
+        {
+            vidas3.gameObject.SetActive(false);
+            Debug.Log("Player got damaged. His current health is " + health);
+        }
+        if(health == 1)
+        {
+            vidas3.gameObject.SetActive(false);
+            vidas2.gameObject.SetActive(false);
+            Debug.Log("Player got damaged. His current health is " + health);
+        }
     }
 }
