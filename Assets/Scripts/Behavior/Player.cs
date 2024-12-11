@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI monedasPerder;
     public int TotalMonedas;
 
+    public TextMeshProUGUI mapas;
+    public int TotalMapas;
+
     private Rigidbody2D _rigibody;
     private Animator _animator;
 
@@ -137,6 +140,12 @@ public class Player : MonoBehaviour
             monedas.text = " " + TotalMonedas.ToString();
             monedasPerder.text = " " + TotalMonedas.ToString();
 
+        }
+        if (collision.gameObject.tag == "Mapa")
+        {
+            Destroy(collision.gameObject);
+            TotalMapas += 1;
+            mapas.text = " " + TotalMapas.ToString();
         }
     }
 }
