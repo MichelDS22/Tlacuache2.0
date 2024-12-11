@@ -27348,13 +27348,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 3752384617287909391, guid: 3390d2e4f14ebbd44b53b5a0949f5dcb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1927754295, guid: 3237c5a61b01eec419b0f3c3ed97c31d, type: 3}
     - target: {fileID: 5406768773412027954, guid: 3390d2e4f14ebbd44b53b5a0949f5dcb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.4974463
+      value: -0.85
       objectReference: {fileID: 0}
     - target: {fileID: 5406768773412027954, guid: 3390d2e4f14ebbd44b53b5a0949f5dcb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.5499501
+      value: -2.74
       objectReference: {fileID: 0}
     - target: {fileID: 5406768773412027954, guid: 3390d2e4f14ebbd44b53b5a0949f5dcb, type: 3}
       propertyPath: m_LocalPosition.z
