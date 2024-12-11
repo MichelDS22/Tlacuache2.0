@@ -12,7 +12,7 @@ public class Teleport : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
- 
+
         int Mapas = collision.gameObject.GetComponent<Player>().TotalMapas;
         if (collision.CompareTag("Player") && Mapas == 5)
         {
