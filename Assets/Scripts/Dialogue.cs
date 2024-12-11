@@ -21,7 +21,7 @@ public class Dialogue : MonoBehaviour
 
 
 
-        if ( isPlayerInRange && Input.GetButtonDown("Fire1"))
+        if ( isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
             if (!DidDialogueStart)
             {
