@@ -1,23 +1,20 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     public Transform OriginPoint;
-
     public int totalHealth = 3;
-    
+
     public RectTransform vidas1;
     public RectTransform vidas2;
     public RectTransform vidas3;
 
-
-    //Game Over
-
+    // Game Over
     private int health;
+    private bool _isDead = false; 
+    private bool _isInvulnerable = false; 
 
     private SpriteRenderer _renderer;
     private Animator _animator;
@@ -32,34 +29,36 @@ public class PlayerHealth : MonoBehaviour
         _animator = GetComponent<Animator>();
         _controller = GetComponent<Player>();
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         health = totalHealth;
     }
+
     public void AddDamage(int amount)
     {
-        
-        health -= amount;
-        
-        StartCoroutine("VisualFeedback");
+        if (_isDead || _isInvulnerable) return; 
 
+        health -= amount;
+
+        StartCoroutine(VisualFeedback()); // Cambia el color y aplica cooldown.
 
         if (health <= 0)
         {
             health = 0;
-            gameObject.SetActive(false);
-            DisableEnemies();
-            
+            Die(); // Llamar a la lógica de muerte.
         }
-        VidasHUD();
 
+        VidasHUD();
     }
+
     public void AddHealth(int amount)
     {
+        if (_isDead) return; // No se puede curar si está muerto.
+
         health += amount;
 
-        //Max
+        // Máximo permitido.
         if (health > totalHealth)
         {
             health = totalHealth;
@@ -68,13 +67,39 @@ public class PlayerHealth : MonoBehaviour
         VidasHUD();
         Debug.Log("Player got some life. His current health is " + health);
     }
-    private IEnumerable VisualFeedback()
+
+    private IEnumerator VisualFeedback()
     {
-        Debug.Log("Corrutina de daño");
+        _isInvulnerable = true; // Activa el estado de invulnerabilidad.
+        Debug.Log("Player is invulnerable");
+
+        // Cambiar color a rojo.
         _renderer.color = Color.red;
-        yield return new WaitForSeconds(2f);
+
+        // Espera el tiempo del cooldown.
+        yield return new WaitForSeconds(2.5f);
+
+        // Restaurar el color original.
         _renderer.color = Color.white;
-        
+
+        // Desactiva el estado de invulnerabilidad.
+        _isInvulnerable = false;
+        Debug.Log("Player is no longer invulnerable");
+    }
+
+    private void Die()
+    {
+        _isDead = true; // Marca al jugador como muerto.
+        DisableEnemies();
+
+        // Lógica de la pantalla de derrota.
+        MenuPerder.gameObject.SetActive(true);
+        HUD.SetActive(false);
+
+        // Desactiva el control y animación del jugador.
+        _animator.enabled = false;
+        _controller.enabled = false;
+        GetComponent<Collider2D>().enabled = false; // Desactiva las colisiones.
     }
 
     private void DisableEnemies()
@@ -90,43 +115,16 @@ public class PlayerHealth : MonoBehaviour
     private void OnEnable()
     {
         health = totalHealth;
+        _isDead = false; // Reinicia el estado del jugador.
+        GetComponent<Collider2D>().enabled = true; // Reactiva el colisionador.
     }
-    private void OnDisable()
+
+    public void VidasHUD()
     {
-        MenuPerder.gameObject.SetActive(true);
-        HUD.SetActive(false);
-        _animator.enabled = false;
-        _controller.enabled = false;
+        vidas3.gameObject.SetActive(health >= 3);
+        vidas2.gameObject.SetActive(health >= 2);
+        vidas1.gameObject.SetActive(health >= 1);
 
-        //para el respawn
-        health = 3;
-        VidasHUD();
-        _controller.transform.position = new Vector2(OriginPoint.transform.position.x, OriginPoint.transform.position.y);
-    }
-    public void  VidasHUD()
-    {
-        if (health == 3)
-        {
-            vidas3.gameObject.SetActive(true);
-            vidas2.gameObject.SetActive(true);
-            vidas1.gameObject.SetActive(true);
-
-            Debug.Log("Player got damaged. His current health is " + health);
-        }
-        if (health == 2)
-        {
-            vidas3.gameObject.SetActive(false);
-            vidas2.gameObject.SetActive(true);
-            vidas1.gameObject.SetActive(true);
-            Debug.Log("Player got damaged. His current health is " + health);
-        }
-        if(health == 1)
-        {
-            vidas3.gameObject.SetActive(false);
-            vidas2.gameObject.SetActive(false);
-            vidas1.gameObject.SetActive(true);
-
-            Debug.Log("Player got damaged. His current health is " + health);
-        }
+        Debug.Log("Player got damaged. His current health is " + health);
     }
 }

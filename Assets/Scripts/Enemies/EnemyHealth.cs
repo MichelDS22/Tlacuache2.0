@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-   public void AddDamage()
+    public int EHealth = 1; // Vida inicial del enemigo.
+
+    // Método para recibir daño.
+    public void AddDamage(int damage)
     {
-        gameObject.SetActive(false);
+        EHealth -= damage; // Reducir la vida según el daño recibido.
+
+        if (EHealth <= 0 )
+        {
+            EHealth = 0; // Evitar que sea negativo (opcional).
+            gameObject.SetActive(false); // Desactivar el enemigo.
+        }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public int AttackDamage = 1; 
     private bool _isAttacking;
     private Animator _animator;
 
@@ -17,25 +18,25 @@ public class PlayerAttack : MonoBehaviour
         if (_animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             _isAttacking = true;
+
         }
-        else 
+        else
         {
-        _isAttacking = false;
+            _isAttacking = false;
         }
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-         if (_isAttacking == true) 
+        // Si el jugador está atacando y el objeto tiene la etiqueta correcta.
+        if (_isAttacking)
         {
+
             if (collision.CompareTag("Enemy") || collision.CompareTag("Big Bullet"))
             {
-            collision.SendMessageUpwards("AddDamage");
-                //Destroy(collision.gameObject);
-
+                // Enviar el daño al enemigo.
+                collision.SendMessageUpwards("AddDamage", AttackDamage);
             }
-
-        }  
+        }
     }
 }
