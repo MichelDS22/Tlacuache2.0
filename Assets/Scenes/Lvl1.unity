@@ -28975,7 +28975,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5.399994, y: 0}
+  m_AnchoredPosition: {x: 5.4000244, y: 0}
   m_SizeDelta: {x: 73.34, y: 72.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &958849633
@@ -63765,6 +63765,10 @@ PrefabInstance:
     - target: {fileID: 5488003209198550014, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
       propertyPath: m_Name
       value: Enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212437621099761861, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
+      propertyPath: EHealth
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8854711865747193846, guid: 889e891326e8e4d4fbc0fbf6bb851489, type: 3}
       propertyPath: m_LocalPosition.x
