@@ -11,11 +11,9 @@ public class PlayerHealth : MonoBehaviour
     public RectTransform hearthUI;
 
     //Game Over
-    public RectTransform gameOverMenu;
-    public GameObject hordes;
 
     private int health;
-    private float hearthSize = 16f;
+    private float hearthSize = 30.33333f;
 
     private SpriteRenderer _renderer;
     private Animator _animator;
@@ -85,8 +83,6 @@ public class PlayerHealth : MonoBehaviour
     }
     private void OnDisable()
     {
-        gameOverMenu.gameObject.SetActive(true);
-        hordes.SetActive(false);
         _animator.enabled = false;
         _controller.enabled = false;
 
